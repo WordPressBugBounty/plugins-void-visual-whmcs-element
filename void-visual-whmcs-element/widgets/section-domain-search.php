@@ -151,35 +151,61 @@ class Void_Wbwhmcse_Section_Domain_Search {
 	        'active' => 'yes',
 	        'active_text' => '', 
 
-	    ), $atts));    			
+	    ), $atts));
+		
+		 // Escape attributes for safe output
+		 $input_placeholder   = esc_attr($atts['input_placeholder']);
+		 $search_input_border = esc_attr($atts['search_input_border']);
+		 $button_color        = esc_attr($atts['button_color']);
+		 $button_text_color   = esc_attr($atts['button_text_color']);
+		 $button_text_size    = intval($atts['button_text_size']); // Only allow integers for size
+		 $input_button_text   = esc_attr($atts['input_button_text']);
+		 $whmcs_url           = esc_url($atts['whmcs_url']);
+		 $direct_search       = esc_attr($atts['direct_search']);
+		 $input_show_button   = esc_attr($atts['input_show_button']);
+
+
 			ob_start();  
 			?>
 			<?php if($direct_search) : ?>
-			<div class="sda-form-area">
-            <div class="sda-form-input-box">
-                 <form method="post" action="<?php if($whmcs_bridge_enabled==1){ echo esc_url(void_wbwhmcse_whmcs_bridge_url() .'?ccce=domainchecker'); } else{ echo esc_url($whmcs_url.'/domainchecker.php'); }  ?>" >
-                    <input style="border:<?php echo $search_input_border ?>" class="iddomainname" type="text" autocomplete="off" required name="domain" placeholder="<?php echo $input_placeholder; ?>">
-                    <?php   if ($input_show_button=='yes') { ?>
-                        <input id="find" type="submit" style="background-color:<?php echo $button_color;?>; color:<?php echo $button_text_color; ?>; font-size:<?php echo $button_text_size; ?>px" value="<?php echo $input_button_text; ?>">
-                    <?php   } ?>
-                </form>
-            </div>
-             <div id="results" class="domain-result"></div>     
-		  </div>
-		  <?php else: ?>
-		<div class="sda-form-area">
-			<form method="post" action="<?php if($whmcs_bridge_enabled==1){ echo esc_url(void_wbwhmcse_whmcs_bridge_url() .'?ccce=domainchecker'); } else{ echo esc_url($whmcs_url.'/domainchecker.php'); }  ?>">
-			    <div class="sda-form-input-box">
-			        <input style="border:<?php echo esc_attr($search_input_border) ?>" type="text" autocomplete="off" required name="domain" placeholder="<?php echo $settings['search_bar_placeholder']; ?>">
-					<?php   if ($input_show_button=='yes') { ?>
-					<input type="submit"  style="background-color:<?php echo esc_attr($button_color);?>; color:<?php echo esc_attr($button_text_color); ?>; font-size:<?php echo esc_attr($button_text_size); ?>px" value="<?php echo esc_attr($input_button_text); ?>">
-					<?php   } ?>
+				<div class="sda-form-area">
+					<div class="sda-form-input-box">
+						<form method="post" action="<?php echo ($whmcs_bridge_enabled == 1) ? esc_url(void_wbwhmcse_whmcs_bridge_url() . '?ccce=domainchecker') : esc_url($whmcs_url . '/domainchecker.php'); ?>">
+							<input 
+								style="border: <?php echo $search_input_border; ?>" 
+								class="iddomainname" 
+								type="text" 
+								autocomplete="off" 
+								required 
+								name="domain" 
+								placeholder="<?php echo $input_placeholder; ?>"
+							>
+							<?php if ($input_show_button === 'yes') : ?>
+								<input 
+									id="find" 
+									type="submit" 
+									style="background-color: <?php echo $button_color; ?>; color: <?php echo $button_text_color; ?>; font-size: <?php echo $button_text_size; ?>px;" 
+									value="<?php echo $input_button_text; ?>"
+								>
+							<?php endif; ?>
+						</form>
+					</div>
+					<div id="results" class="domain-result"></div>
 				</div>
-			</form>
-        </div>
+		  <?php else: ?>
+			<div class="sda-form-area">
+				<form method="post" action="<?php if($whmcs_bridge_enabled ==1 ){ echo esc_url(void_wbwhmcse_whmcs_bridge_url() .'?ccce=domainchecker'); } else{ echo esc_url($whmcs_url.'/domainchecker.php'); }  ?>">
+					<div class="sda-form-input-box">
+						<input style="border:<?php echo esc_attr($search_input_border) ?>" type="text" autocomplete="off" required name="domain" placeholder="<?php echo $input_placeholder; ?>">
+						<?php   if ( $input_show_button == 'yes' ) { ?>
+						<input type="submit"  style="background-color:<?php echo esc_attr($button_color);?>; color:<?php echo esc_attr($button_text_color); ?>; font-size:<?php echo esc_attr($button_text_size); ?>px" value="<?php echo esc_attr($input_button_text); ?>">
+						<?php   } ?>
+					</div>
+				</form>
+			</div>
 	<?php endif; ?>
 	<?php		
-	$output = ob_get_clean(); 
+	$output = ob_get_clean();
             return $output; 
 	} 
 

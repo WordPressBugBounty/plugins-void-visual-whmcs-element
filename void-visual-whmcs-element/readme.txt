@@ -1,11 +1,11 @@
 === WPBakery Visual Composer WHMCS Elements ===
-Contributors: voidcoders, innovs
-Tags: page builder, visual composer, WPBakery, whmcs, whmcs-bridge, WPBakery add on, ajax domain search, whmcs plugin
+Contributors: voidcoders, voidthemes
+Tags: page-builder, visual composer, WPBakery, whmcs, whmcs-bridge, pricing table, widget, WPBakery add on, live domain search, domain search, ajax domain search, whmcs plugin, domain pricing table
 Donate link: https://www.paypal.me/voidcoders
 Requires at least: 4.4
 Requires PHP: 5.6
-Tested up to: 6.4.3
-Stable tag: 1.0.4
+Tested up to: 6.7.1
+Stable tag: 1.0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,12 +72,5 @@ The Plugin's domain search depends on api call to external free service provided
 3. /assets/screenshot-3.jpg
 4. /assets/screenshot-4.jpg
 5. /assets/screenshot-5.jpg 
-
-== Changelog ==
-
-
-=  1.0.4  =
-
-[Fix] Compatibility Fixes with the latest WordPress 6.4.3 & VS
 
  
