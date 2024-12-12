@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/voidcoders
 Requires at least: 4.4
 Requires PHP: 5.6
 Tested up to: 6.7.1
-Stable tag: 1.0.3.1
+Stable tag: 1.0.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

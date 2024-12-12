@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WPBakery Visual Composer WHMCS Elements
  * Description: Adds Verious Widgets such as Live Domain Searcher, Pricing Table, Knowledge Base in Elementor for being used with your WHMCS or WHMCS Bridge Plugin for Hosting Website.
- * Version:     1.0.3.1
+ * Version:     1.0.4.1
  * Author:      voidCoders
  * Author URI:  http://voidcoders.com
  * Plugin URI:  http://voidcoders.com/product/elementor-whmcs-elements/
