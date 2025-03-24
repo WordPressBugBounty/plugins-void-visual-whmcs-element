@@ -21,14 +21,9 @@ This plugin adds new element / widget such as: Domain Search, Live domain Search
 * Live pricing table from WHMCS 
 * Pricing table with choice of your currency from WHMCS!
 * Normal pricing table.
-* Domain Search and post to WHMCS
-
-For more details & Demo :[WPBakery Visual Composer WHMCS Elements](https://voidcoders.com/product/wpbakery-whmcs-elements/).
-For our other works visit : [voidCoders](https://voidcoders.com).
-For updates follow us on : [Facebook](https://www.facebook.com/voidcoders).
+* Domain Search and post to WHMCH
 
 
-[Subscribe for the release of the Pro version and get 60% Discount](https://voidcoders.com/wpbakery-visual-composer-whmcs-elements-pro-subscription/).
 Pro Version Features planned: 
 
 * 10+ Style of Live pricing table with WPBakery Page Builder pro and WHMCS Elements
