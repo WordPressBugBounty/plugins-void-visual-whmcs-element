@@ -27,7 +27,7 @@ class Void_Wbwhmcse_Section_knowledgebase {
             vc_map(array(
                 "name" => __("Knowledgebase Section", "void_wbwhmcse"),
                 "base" => "void_wbwhmcse_laouts_knowledgebase",
-                "category" => esc_html__( 'VOID ELEMENTS', 'void_wbwhmcse' ),
+                "category" => esc_html__( 'INNOVS ELEMENTS', 'void_wbwhmcse' ),
                 "content_element" => true,
                 "icon" => "vc_icon-vc-gitem-post-excerpt",
                 "params" => array(

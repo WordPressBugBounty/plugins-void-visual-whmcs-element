@@ -1,71 +1,113 @@
-=== WPBakery Visual Composer WHMCS Elements ===
-Contributors: voidcoders, voidthemes
+=== Innovs WPBakery Visual Composer WHMCS Elements ===
+
+Contributors: innovs, theinnovs, voidcoders, voidthemes
 Tags: page-builder, visual composer, WPBakery, whmcs, whmcs-bridge, pricing table, widget, WPBakery add on, live domain search, domain search, ajax domain search, whmcs plugin, domain pricing table
 Donate link: https://www.paypal.me/voidcoders
 Requires at least: 4.4
 Requires PHP: 5.6
-Tested up to: 6.7.1
-Stable tag: 1.0.4.1
+Tested up to: 6.9
+Stable tag: 1.0.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This WordPress Plugin Adds various widgets WPBakery page builder to work with WHMCS which is used by most of the hosting companies to bill and manage clients and servers. If you want you can use our plugin with only your WHMCS or also with whmcs bridge plugin(integrates whmcs to wordpress and also real whmcs url from customers). 
+🚀 This WordPress Plugin seamlessly integrates various WPBakery Page Builder widgets with WHMCS, the leading solution for hosting companies to bill and manage clients and servers. Whether you use WHMCS standalone or with the WHMCS Bridge plugin (integrates WHMCS to WordPress with real WHMCS URLs), our plugin makes setup a breeze! 🤝
 
-You must have [WPBakery Page Builder](https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431) installed.
-You must have and url of whmcs from where and to where the data will be fetched from and given.
+🚨 **Important Requirements:**
+* You must have [WPBakery Page Builder](https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431) installed.
+* You must have the URL of your WHMCS installation for data fetching and submission.
+
 == Description ==
 
-This plugin adds new element / widget such as: Domain Search, Live domain Search(pro), Pricing table, Live pricing table which fetches pricing from your WHMCS directly so you won't have to change prices each time you update your pricing in WHMCS!, Non live mode for pricing table, Knowledge base box for searcing and posting the search to whmcs or whmcs bridge page! It's an easy and handy plugin for you, if you want to start hosting business and use WordPress site with WPBakery page builder!
+✨ **Supercharge Your Hosting Site with WHMCS & WPBakery!** ✨
 
-* Knowledge Base form for WHMCS
-* Live pricing table from WHMCS 
-* Pricing table with choice of your currency from WHMCS!
-* Normal pricing table.
-* Domain Search and post to WHMCH
+This plugin introduces powerful new elements/widgets to your WPBakery Visual Composer, designed specifically for hosting businesses:
 
+* **Domain Searcher** 🔍: Help users find their perfect domain.
+* **Live Domain Searcher** (Pro version) 📈: Real-time domain availability checks.
+* **Pricing Table** 💰: Showcase your services clearly.
+* **Live Pricing Table** 🚀: Fetches pricing directly from your WHMCS! **No more manual price updates** every time you change prices in WHMCS! 🎉
+* **Non-Live Mode for Pricing Table** 📊: For static pricing display if preferred.
+* **Knowledge Base Box** 📚: Seamlessly search and post queries to your WHMCS or WHMCS Bridge page.
 
-Pro Version Features planned: 
+It's an incredibly easy and handy plugin, perfect if you're looking to launch or enhance your hosting business using WordPress with WPBakery Page Builder! 💼
 
-* 10+ Style of Live pricing table with WPBakery Page Builder pro and WHMCS Elements
-* Domain TLD pricing table from WHMCS directly
-* WHMCS login form directly
+**Core Features at a Glance:**
+* Knowledge Base form for WHMCS 💡
+* Live pricing table directly from WHMCS 💲
+* Pricing table with dynamic currency choice from WHMCS! 🌍
+* Standard (non-live) pricing table. ✨
+* Domain Search and post to WHMCS 🌐
 
+---
 
-[Using Elementor page builder? ](https://wordpress.org/plugins/void-elementor-whmcs-elements/)
+**🌟🌟🌟 Unlock More Power with the Pro Version!🌟🌟🌟**
+[Explore Pro Features Here](https://theinnovs.com/wpb-whmcs-elements-pro/)
 
-[Get Hosting WordPress theme with WHMCS Elements Pro for elementor included](https://voidcoders.com/product/hostdaddy-responsive-whmcs-hosting-wordpress-theme/).
+* **10+ Stunning Styles** of Live Pricing Tables for WPBakery Page Builder Pro! 🎨
+* **Domain TLD Pricing Table** fetched directly from WHMCS! 🏷️
+* **Integrated WHMCS Login Form** for seamless user access! 🔒
 
+---
 
-What Does This plugin give you?
+**Looking for Elementor Integration?**
+* [Find our Elementor WHMCS Elements plugin here!](https://wordpress.org/plugins/void-elementor-whmcs-elements/) ➡️
+* [Get our HostDaddy Hosting WordPress theme with WHMCS Elements Pro for Elementor included!](https://voidcoders.com/product/hostdaddy-responsive-whmcs-hosting-wordpress-theme/) 🖥️
 
-1. Use WHMCS pricing directly on your wp site
-2. Use Knowledge base form on site so people can search that
-3. More features will be available on our Pro Version. [Subscribe for the release of the Pro version and get 60% Discount](https://voidcoders.com/wpbakery-visual-composer-whmcs-elements-pro-subscription/) .
+---
 
+**What Does This Plugin Provide You?**
 
-Note: This plugin is an addon of [WPBakery Page Builder](https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431) and will only work with WPBakery Page Builder installed, and your WPBakery page builder should be up to date to latest version
+1.  **Direct WHMCS Pricing:** Use your WHMCS pricing directly on your WordPress site, ensuring accuracy and saving time. 💰
+2.  **Integrated Knowledge Base:** Empower your users with an on-site knowledge base search form. 📚
+3.  **Future-Proof Your Business:** More advanced features are planned for our Pro Version. [Subscribe for the Pro version release now and get a **whopping 60% Discount!**](https://voidcoders.com/wpbakery-visual-composer-whmcs-elements-pro-subscription/) 🎁
+
+**Note:** This plugin functions as an addon for [WPBakery Page Builder](https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431). It **requires WPBakery Page Builder to be installed and up-to-date** to its latest version to work correctly. ⚠️
 
 == Installation ==
 
-1. Upload the plugin folder after extracting it to the "/wp-content/plugins/(the folder of the extracted plugin)" directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Go to WPBakery page builder mode and then you should see void elements if you scroll a bit. The live pricing, name etc will be shown only when you save the page and view it in the front end of the site.
+1.  **Upload & Extract:** Upload the plugin folder (after extracting) to the `/wp-content/plugins/` directory, or install it directly via the WordPress plugins screen. ⬆️
+2.  **Activate:** Activate the plugin through the 'Plugins' screen in your WordPress dashboard. ✅
+3.  **Access Elements:** Go to WPBakery Page Builder mode. You'll find our new elements under the "VOID ELEMENTS" section. Remember, live data (pricing, etc.) will render on the front-end after you save and view the page! 👀
 
 == Frequently Asked Questions ==
 
-= Where can to find the new element added =
+= Where can I find the new elements added by this plugin? =
 
-Our Widgets For WPBakery Page Builder adds a new section in the WPBakery live page builder named : VOID ELEMENTS. There you will see the widget which you can drag and drop and config settings
+Our Widgets for WPBakery Page Builder add a dedicated new section in the WPBakery live page builder called: **INNOVS ELEMENTS**. Simply drag, drop, and configure your settings there! ⚙️
 
 == Dependencies ==
-The Plugin's domain search depends on api call to external free service provided by [http://whoiz.herokuapp.com/](http://whoiz.herokuapp.com/). When you search for a domain that search is passed to this api call and the response is then fetched. 
+The Plugin's domain search feature relies on an API call to the external free service provided by [http://whoiz.herokuapp.com/](http://whoiz.herokuapp.com/). When a domain is searched, the query is passed to this API, and the response is then fetched and displayed. 🔗
 
 == Screenshots ==
 
-1. /assets/screenshot-1.jpg
-2. /assets/screenshot-2.jpg
-3. /assets/screenshot-3.jpg
-4. /assets/screenshot-4.jpg
-5. /assets/screenshot-5.jpg 
+1.  /assets/screenshot-1.jpg 🖼️
+2.  /assets/screenshot-2.jpg 🖼️
+3.  /assets/screenshot-3.jpg 🖼️
+4.  /assets/screenshot-4.jpg 🖼️
+5.  /assets/screenshot-5.jpg 🖼️
 
- 
+== Changelog ==
+
+= 1.0.4.3 =
+[Fix] Compatibility with the latest version of WordPress
+
+= 1.0.4.2 =
+[Fix] Compatibility with the latest version of WPBakery
+
+= 1.0.4.1 =
+[Fix] Compatibility with the latest version of WP
+
+= 1.0.4 =
+[Fix] Compatibility with the latest version of WPBakery
+
+= 1.0.3 =
+[Fix] Broken layout issues
+
+= 1.0.2 =
+[Fix] Compatibility with the latest version of WPBakery
+
+= 1.0.1 =
+[Fix] Domain search design issue
+
+= 1.0.0 =
+* Initial release

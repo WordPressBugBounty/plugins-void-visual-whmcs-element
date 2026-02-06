@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPBakery Visual Composer WHMCS Elements
  * Description: Adds Verious Widgets such as Live Domain Searcher, Pricing Table, Knowledge Base in Elementor for being used with your WHMCS or WHMCS Bridge Plugin for Hosting Website.
- * Version:     1.0.4.1
- * Author:      voidCoders
- * Author URI:  http://voidcoders.com
- * Plugin URI:  http://voidcoders.com/product/elementor-whmcs-elements/
+ * Version:     1.0.4.3
+ * Author:      TheInnovs
+ * Author URI:  https://theinnovs.com
+ * Plugin URI:  https://theinnovs.com/wpb-whmcs-elements-pro/
  * Text Domain: void_wbwhmcse
  */
 /* This loads the plugin.php file which is the main one */
@@ -13,8 +13,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 define( 'VOID_WBWHMCSE_ELEMENTS_FILE_', __FILE__ );
-
-define( 'VOID_WBWHMCSE_PLUGIN_NAME', 'Void WPBakery WHMCS Elements' );
+define( 'WBWHMCSE_NAME', 'void_wbwhmcse' );
+define( 'WBWHMCSE_VERSION', '1.0.4.3' );
+define( 'VOID_WBWHMCSE_PLUGIN_NAME', 'Innovs WPBakery WHMCS Elements' );
 
 /**
  *
@@ -38,20 +39,45 @@ function void_wbwhmcse_load_elements() {
     
   // Require the main plugin file
    require( __DIR__ . '/helper/helper.php' ); // load helper functions
+   
 }
 add_action( 'plugins_loaded', 'void_wbwhmcse_load_elements' );   //notiung but checking and notice
+
+
+require_once plugin_dir_path( __FILE__ ) . '/includes/class-void-visual-whmcs-admin.php';
+if( class_exists('Void_Visual_WHMCS_Admin')){
+    
+    $void_visual_whmcs_admin = new Void_Visual_WHMCS_Admin();
+}
+
+require_once plugin_dir_path( __FILE__ ) . '/includes/class-void-visual-whmcs-notice.php';
+if( class_exists('Void_Visual_WHMCS_Notice')){
+    
+    $Void_Visual_WHMCS_Notice = new Void_Visual_WHMCS_Notice();
+}
  
 
 function void_wbwhmcse_widget_register(){
+
   // echo __DIR__ . '/templates/domainSearch.php';
   // require( __DIR__ . '/widgets/section-domain-search.php' ); 
+
   void_wbwhmcse_includes();
-   if (class_exists('Void_Wbwhmcse_Section_Domain_Search')) {
-   $obj_inits = new Void_Wbwhmcse_Section_Domain_Search;
+
+   // Only load Free Domain Search if PRO is NOT active
+  if (!apply_filters('void_wbwhmcse_pro_active', false)) {
+      if (class_exists('Void_Wbwhmcse_Section_Domain_Search')) {
+          new Void_Wbwhmcse_Section_Domain_Search();
+      }
   }
-   if (class_exists('Void_Wbwhmcse_Section_Pricing')) {
-   $obj_inits = new Void_Wbwhmcse_Section_Pricing;
+
+   // Only load Free if PRO is NOT active
+  if (!apply_filters('void_wbwhmcse_pro_active', false)) {
+      if (class_exists('Void_Wbwhmcse_Section_Pricing')) {
+          new Void_Wbwhmcse_Section_Pricing();
+      }
   }
+
    if (class_exists('Void_Wbwhmcse_Section_knowledgebase')) {
    $obj_inits = new Void_Wbwhmcse_Section_knowledgebase;
   }
@@ -165,188 +191,3 @@ function void_wbwhmcse_spare_me(){
     }
 }
 add_action( 'admin_init', 'void_wbwhmcse_spare_me', 5 );
-
-
-
-// Plugin Menu
-function void_wbwhmcse_custom_menu_page(){
-    add_menu_page( 
-        __( 'VOID WHMCS', 'void_wbwhmcse' ),
-        'WHMCS WPBkary',
-        'manage_options',
-        'void_whmcs_page',
-        'void_wbwhmcse_func',
-        '',
-        6
-    ); 
-}
-//add_action( 'admin_menu', 'void_wbwhmcse_custom_menu_page' );
-  
-
-/**
- * Display a custom menu page
- */
-function void_wbwhmcse_func(){ ?>
-
-<div class="wrap about-wrap">
-  
-  <div class="about-text" style=" margin: 15px 2px; ">
-    <?php _e('<h4 style=" display: inline; ">Shaping the void~</h4> <a href="http://voidcoders.com" target="_blank">voidcoders</a><br><br>We are voidcoders and we create WordPress goods & WEB Apps & <span style=" color: #2196F3; font-weight: 600; ">Custom Script! </span>','void_wbwhmcse' ); ?>
-  </div>
-  
-  <h4><?php _e( 'Void Visual WHMCS Elements Preview' ,'void_wbwhmcse'); ?></h4>
-
-  <?php echo wp_oembed_get('https://www.youtube.com/watch?v=IFHOMMMowbA',array('width'=>'700')); ?>
-
-  
-  <div class="changelog">
-  <br>
-    <div class="feature-section images-stagger-right">
-      <h4><?php _e( 'Check Our Exciting Products & Offeres Bellow' ,'void_wbwhmcse'); ?></h4>
-    </div>
-
-        <object type="text/html" data="//voidcoders.com/promo-products" width:="" style=" height: -webkit-fill-available; width: -webkit-fill-available; "> </object>
-
-  </div>
-
-</div>
-
-<?php 
-}
-
-function void_wbwhmcse_go_pro(){
-
-  add_submenu_page( 'void_whmcs_page', 'Go Pro', '<span class="dashicons dashicons-star-filled" style="color: #4cb696; font-size: 17px"></span>Go Pro', 'manage_options', 'void_whcms_pro', 'void_wbwhmcse_goPro' );
-
-}
-
-//add_action( 'admin_menu', 'void_wbwhmcse_go_pro' );
-
-function void_wbwhmcse_goPro(){ ?>
-
-<div class="void-ewhmcse-table">
-    <div class="table">
-    <div class="table-cell">VOID<img style="width: 60px;" src="<?php plugins_url( '/assets//logovoid.png', __FILE__ ); ?>">CODERS</div>
-    <div class="table-cell plattform">
-      <h3><?php esc_html_e('Free','void_wbwhmcse') ?></h3>
-    </div>
-    <div class="table-cell enterprise">
-      <h3><?php esc_html_e('Pro ( 14$ (Lifetime*))','void_wbwhmcse') ?></h3>
-      <a href="<?php echo esc_url('https://voidcoders.com/product/elementor-whmcs-elements-pro/') ?>" class="btn" target="_blank">Get Now</a>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('Domain Search WHMCS','void_wbwhmcse') ?></div>
-    <div class="table-cell">
-      <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('Live Ajax Domain Search','void_wbwhmcse') ?></div>
-    <div class="table-cell">
-      <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('Knowledge Base form for WHMCS','void_wbwhmcse') ?></div>
-    <div class="table-cell">
-      <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('1 Style Live pricing table from WHMCS','void_wbwhmcse') ?></div>
-    <div class="table-cell">
-      <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('General Pricing table','void_wbwhmcse') ?></div>
-    <div class="table-cell">
-      <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('6+ Style Live pricing table from WHMCS','void_wbwhmcse') ?></div>
-    <div class="table-cell"></div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('Domain TLD pricing table from WHMCS','void_wbwhmcse') ?></div>
-    <div class="table-cell"></div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('WHMCS login form','void_wbwhmcse') ?></div>
-    <div class="table-cell"></div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-    <div class="table-cell cell-feature"><?php esc_html_e('Dedicated Support','void_wbwhmcse') ?></div>
-    <div class="table-cell"></div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-
-    <div class="table-cell cell-feature"><?php esc_html_e('More Features Update','void_wbwhmcse') ?></div>
-    <div class="table-cell"></div>
-    <div class="table-cell">
-      <svg class="enterprise-check" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <title>check_blue</title>
-        <path d="M6.116 14.884c.488.488 1.28.488 1.768 0l10-10c.488-.488.488-1.28 0-1.768s-1.28-.488-1.768 0l-9.08 9.15-4.152-4.15c-.488-.488-1.28-.488-1.768 0s-.488 1.28 0 1.768l5 5z" fill="limegreen" fill-rule="evenodd"/>
-      </svg>
-    </div>
-  </div>
-</div>
-<div style="text-align: center;">
-
-<h3 style="color: green;">**Get Our Featured Hosting WordPress Theme with WHMCS Elements Pro For Free**</h3>
-<a href="https://voidcoders.com/product/hostdaddy-responsive-whmcs-hosting-wordpress-theme/" target="_blank">
-<img src="<?php plugins_url( '/assets//01_preview.png', __FILE__ ); ?>"></a>
-</div>
-
-<?php }
