@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WPBakery Visual Composer WHMCS Elements
  * Description: Adds Verious Widgets such as Live Domain Searcher, Pricing Table, Knowledge Base in Elementor for being used with your WHMCS or WHMCS Bridge Plugin for Hosting Website.
- * Version:     1.0.4.3
+ * Version:     1.0.4.4
  * Author:      TheInnovs
  * Author URI:  https://theinnovs.com
  * Plugin URI:  https://theinnovs.com/wpb-whmcs-elements-pro/
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 define( 'VOID_WBWHMCSE_ELEMENTS_FILE_', __FILE__ );
 define( 'WBWHMCSE_NAME', 'void_wbwhmcse' );
-define( 'WBWHMCSE_VERSION', '1.0.4.3' );
+define( 'WBWHMCSE_VERSION', '1.0.4.4' );
 define( 'VOID_WBWHMCSE_PLUGIN_NAME', 'Innovs WPBakery WHMCS Elements' );
 
 /**
@@ -44,6 +44,14 @@ function void_wbwhmcse_load_elements() {
 add_action( 'plugins_loaded', 'void_wbwhmcse_load_elements' );   //notiung but checking and notice
 
 
+/**
+ * Check whether the Pro version is active.
+ * Used to hide all promotions (Go Pro menu, Pro notice, plugin list button, widget promo tab).
+ */
+function void_wbwhmcse_is_pro_active() {
+  return function_exists( 'void_wbwhmcse_pro_load_elements' ) || apply_filters( 'void_wbwhmcse_pro_active', false );
+}
+
 require_once plugin_dir_path( __FILE__ ) . '/includes/class-void-visual-whmcs-admin.php';
 if( class_exists('Void_Visual_WHMCS_Admin')){
     
@@ -56,6 +64,22 @@ if( class_exists('Void_Visual_WHMCS_Notice')){
     $Void_Visual_WHMCS_Notice = new Void_Visual_WHMCS_Notice();
 }
  
+/**
+ * Add a promotional button beside the Deactivate link on the Plugins page.
+ */
+function void_wbwhmcse_plugin_action_links( $links ) {
+  // Do not show the promotion when the Pro version is active.
+  if ( void_wbwhmcse_is_pro_active() ) {
+    return $links;
+  }
+  $links['void_wbwhmcse_go_pro'] = sprintf(
+    '<a href="%s" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#e63946;color:#fff;font-weight:600;padding:1px 8px;border-radius:3px;text-decoration:none;">%s</a>',
+    esc_url( 'https://theinnovs.com/wpb-whmcs-elements-pro/' ),
+    esc_html__( 'Black Friday 60% off on the Pro', 'void_wbwhmcse' )
+  );
+  return $links;
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'void_wbwhmcse_plugin_action_links' );
 
 function void_wbwhmcse_widget_register(){
 

@@ -5,8 +5,8 @@ Tags: page-builder, visual composer, WPBakery, whmcs, whmcs-bridge, pricing tabl
 Donate link: https://www.paypal.me/voidcoders
 Requires at least: 4.4
 Requires PHP: 5.6
-Tested up to: 6.9
-Stable tag: 1.0.4.3
+Tested up to: 7.1.5
+Stable tag: 1.0.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,8 @@ The Plugin's domain search feature relies on an API call to the external free se
 5.  /assets/screenshot-5.jpg 🖼️
 
 == Changelog ==
+= 1.0.4.4 =
+[Fix] Compatibility with the latest version of WordPress
 
 = 1.0.4.3 =
 [Fix] Compatibility with the latest version of WordPress

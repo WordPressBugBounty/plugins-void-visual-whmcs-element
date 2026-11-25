@@ -32,7 +32,7 @@ class Void_Visual_WHMCS_Admin{
             11                                     // Position
         );
 
-        if( ! function_exists('void_wbwhmcse_pro_load_elements')){
+        if( ! void_wbwhmcse_is_pro_active() ){
             add_submenu_page( 
                 'void_wb_whmcs_page', 
                 'Go Pro', 

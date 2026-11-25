@@ -16,7 +16,7 @@
                         <?php 
                         echo wp_kses(
                             __(
-                                'Grab the Pro Version of WPBakery WHMCS Now! Best Cyber Monday deals are live. <a href="https://theinnovs.com/wpb-whmcs-elements-pro" target="_blank">Act now!</a>',
+                                'Get WPBakery WHMCS at 60% off. Check all the Black Friday deals <a href="https://theinnovs.com/wpb-whmcs-elements-pro" target="_blank">here</a>.',
                                 'void_wbwhmcse'
                             ),
                             array(
@@ -50,6 +50,10 @@
         }
     
         private function should_display_notice() {
+            // Never show the Pro promotion when the Pro version is active
+            if ( function_exists( 'void_wbwhmcse_is_pro_active' ) && void_wbwhmcse_is_pro_active() ) {
+                return false;
+            }
             $dismissed_time = get_option( 'void_wb_pro_notice' );
             // Check if the notice has been dismissed and if 7 days have passed
             if ( $dismissed_time ) {

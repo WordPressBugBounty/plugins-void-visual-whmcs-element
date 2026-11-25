@@ -9,7 +9,7 @@
     </div>
     <div class="table-cell enterprise">
       <h3><?php esc_html_e('Pro','void_wbwhmcse') ?></h3>
-      <h4><?php esc_html_e('🥳 Cyber Monday 55% off! 🥳 This is your chance to future-proof your hosting business. Grab it before the deal ends (with 14 days no question ask refund policy)! 🚀','void_wbwhmcse') ?></h3>
+      <h4><?php esc_html_e('🥳 Black Friday sale (60% off) is live! 🥳 It\'s the time of the year to save huge! Grab it before the deal ends (with 14 days no question ask refund policy)! 🚀','void_wbwhmcse') ?></h4>
       <a href="<?php echo esc_url('https://theinnovs.com/wpb-whmcs-elements-pro') ?>" class="btn" target="_blank">Get Now</a>
     </div>
     <div class="table-cell cell-feature"><?php esc_html_e('Domain Search WHMCS','void_wbwhmcse') ?></div>
@@ -119,4 +119,7 @@
       </svg>
     </div>
   </div>
+</div>
+<div class="void-wbwhmcse-pro-banner" style="margin: 20px 20px 20px 0;">
+  <img style="max-width: 100%; height: auto; display: block;" src="<?php echo esc_url('https://theinnovs.com/wp-content/uploads/2026/11/WPBakery-WHMCS-Elements-Pro-Banner.png'); ?>" alt="<?php esc_attr_e('WPBakery WHMCS Elements Pro','void_wbwhmcse'); ?>">
 </div>

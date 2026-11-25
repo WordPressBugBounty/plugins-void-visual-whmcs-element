@@ -129,6 +129,10 @@ class Void_Wbwhmcse_Section_knowledgebase {
 								
 					)
             ));
+            // Hide the Pro promo tab when the Pro version is active
+            if ( function_exists( 'void_wbwhmcse_is_pro_active' ) && void_wbwhmcse_is_pro_active() && function_exists( 'vc_remove_param' ) ) {
+                vc_remove_param( 'void_wbwhmcse_laouts_knowledgebase', 'pro_feature' );
+            }
 
 
         }
